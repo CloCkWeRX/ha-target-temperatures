@@ -1,0 +1,11 @@
+{
+  "domain": "area_helpers",
+  "name": "Area Helpers",
+  "version": "1.0.0",
+  "documentation": "https://github.com/jules-labs/home-assistant-area-helpers",
+  "issue_tracker": "https://github.com/jules-labs/home-assistant-area-helpers/issues",
+  "codeowners": ["@jules-labs"],
+  "requirements": [],
+  "dependencies": ["input_number"],
+  "iot_class": "internal"
+}

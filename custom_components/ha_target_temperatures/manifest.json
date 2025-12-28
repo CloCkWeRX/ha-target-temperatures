@@ -1,6 +1,7 @@
 {
   "domain": "ha_target_temperatures",
   "name": "Target Temperatures",
+  "config_flow": true,
   "version": "1.0.0",
   "documentation": "https://github.com/CloCkWeRX/ha-target-temperatures",
   "issue_tracker": "https://github.com/CloCkWeRX/ha-target-temperatures/issues",

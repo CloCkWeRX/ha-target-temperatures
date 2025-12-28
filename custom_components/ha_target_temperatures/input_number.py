@@ -5,23 +5,23 @@ from homeassistant.helpers.area_registry import async_get as async_get_area_regi
 from .const import DOMAIN, HELPERS
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
-    """Set up the Area Helpers from a config entry."""
+    """Set up the Target Temperatures from a config entry."""
     area_registry = async_get_area_registry(hass)
     areas = area_registry.async_list_areas()
 
     entities = [
-        AreaHelper(area, helper)
+        TargetTemperature(area, helper)
         for area in areas
         for helper in HELPERS
     ]
 
     async_add_entities(entities)
 
-class AreaHelper(InputNumberEntity):
-    """Representation of an Area Helper."""
+class TargetTemperature(InputNumberEntity):
+    """Representation of a Target Temperature."""
 
     def __init__(self, area, helper):
-        """Initialize the Area Helper."""
+        """Initialize the Target Temperature."""
         self._area = area
         self._helper = helper
         self._attr_unique_id = f"{area.id}_{helper['name'].lower().replace(' ', '_')}"
@@ -34,8 +34,8 @@ class AreaHelper(InputNumberEntity):
         self._attr_value = helper["min_value"]
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, area.id)},
-            name=f"{area.name} Helpers",
-            manufacturer="Area Helpers",
+            name=f"{area.name} Target Temperatures",
+            manufacturer="ha-target-temperatures",
         )
 
     async def async_set_value(self, value):

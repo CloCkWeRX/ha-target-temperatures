@@ -1,8 +1,8 @@
 from homeassistant import config_entries
 from .const import DOMAIN
 
-class AreaHelpersConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Area Helpers config flow."""
+class TargetTemperaturesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    """Target Temperatures config flow."""
 
     VERSION = 1
 
@@ -12,6 +12,6 @@ class AreaHelpersConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_abort(reason="single_instance_allowed")
 
         if user_input is not None:
-            return self.async_create_entry(title="Area Helpers", data={})
+            return self.async_create_entry(title="Target Temperatures", data={})
 
         return self.async_show_form(step_id="user")
